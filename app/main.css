@@ -1,0 +1,36 @@
+/* app css stylesheet */
+
+.page-header {
+  font-size: 24px;
+  font-weight: 800; }
+  .page-header > .errorBox {
+    color: red;
+    font-size: 15px;
+    margin-left: 10px; }
+
+.controls {
+  font-size: 15px; }
+  .controls > .board-size > button {
+    padding: 2px 5px;
+    margin: 0 5px; }
+
+.center-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto; }
+  .center-wrapper > .board-wrapper {
+    height: auto;
+    width: auto;
+    display: table;
+    background-color: cyan;
+    padding: 20px;
+    margin: 20px auto; }
+    .center-wrapper > .board-wrapper div.row {
+      height: 30px;
+      width: 100%;
+      margin: 0; }
+    .center-wrapper > .board-wrapper div.column {
+      height: 100%;
+      width: 30px;
+      margin: 0;
+      display: inline-block; }

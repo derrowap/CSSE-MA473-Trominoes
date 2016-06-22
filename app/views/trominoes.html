@@ -1,0 +1,29 @@
+<div class="container mt-20" ng-controller="trominoesCtrl as trominoesCtrl">
+	<div class="page-header">
+		Trominoes: <span class="errorBox" ng-show="error != null">{{ error }}</span>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 controls">
+			<div class="col-xs-4 board-size">
+				Size of board: <button class="btn btn-primary" ng-click="updateBoardSize(false)"><</button> {{ Math.pow(2, boardSize) }} <button class="btn btn-primary" ng-click="updateBoardSize(true)">></button>
+			</div>
+			<div class="col-xs-4 ">
+				<strong ng-if="trominoesCtrl.moves.length != 0">{{ trominoesCtrl.moves.length - 1 }}</strong><strong ng-if="trominoesCtrl.moves.length == 0">0</strong> Moves
+			</div>
+			<div class="col-xs-4">
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="center-wrapper col-xs-12">
+			<div class="board-wrapper">
+				<div class="row" ng-repeat="column in trominoesCtrl.board">
+					<div class="column" ng-style="row.style" ng-repeat="row in column track by $index" ng-click="pushMove($parent.$index, $index)"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
