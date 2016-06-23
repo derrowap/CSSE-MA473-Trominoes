@@ -1,17 +1,42 @@
-<div class="container mt-20" ng-controller="trominoesCtrl as trominoesCtrl">
+<div class="container" ng-controller="trominoesCtrl as trominoesCtrl">
 	<div class="page-header">
-		Trominoes: <span class="errorBox" ng-show="error != null">{{ error }}</span>
+		Trominoes: <span class="errorBox" ng-show="error != null">{{ error }}</span><span class="winningBox" ng-show="trominoesCtrl.winMessage != null">{{ trominoesCtrl.winMessage }}</span>
 	</div>
 	<div class="row">
 		<div class="col-xs-12 controls">
-			<div class="col-xs-4 board-size">
+			<div class="col-xs-3 board-size">
 				Size of board: <button class="btn btn-primary" ng-click="updateBoardSize(false)"><</button> {{ Math.pow(2, boardSize) }} <button class="btn btn-primary" ng-click="updateBoardSize(true)">></button>
 			</div>
-			<div class="col-xs-4 ">
+			<div class="col-xs-2 text-center">
+				Change size of squares
+				<input type="range" min="10" max="60" defaultValue="30" ng-model="trominoesCtrl.squareSize">
+			</div>
+			<div class="col-xs-3 text-center">
+				Change speed of algorithm
+				<input type="range" min="0" max="2000" defaultValue="1000" ng-model="trominoesCtrl.speed">
+			</div>
+			<div class="col-xs-2">
+				<button class="btn btn-warning" ng-click="restartGame()">Restart</button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 controls">
+			<div class="col-xs-1">
 				<strong ng-if="trominoesCtrl.moves.length != 0">{{ trominoesCtrl.moves.length - 1 }}</strong><strong ng-if="trominoesCtrl.moves.length == 0">0</strong> Moves
 			</div>
-			<div class="col-xs-4">
-				
+			<div class="col-xs-3 btn-group" role="group">
+				Choose a solving algorithm:
+				<button class="btn btn-secondary" ng-click="trominoesCtrl.tileJohnsonbaugh()">Johnsonbaugh</button>
+				<button class="btn btn-secondary" ng-click="trominoesCtrl.tileL()">L-Recursive</button>
+			</div>
+			<div class="col-xs-8">
+				Pick a piece to use:<br>
+				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='single'">Single
+				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='topLeft'">Top Left
+				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='topRight'">Top Right<br>
+				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='bottomLeft'">Bottom Left
+				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='bottomRight'">Bottom Right
 			</div>
 		</div>
 	</div>
@@ -19,8 +44,8 @@
 	<div class="row">
 		<div class="center-wrapper col-xs-12">
 			<div class="board-wrapper">
-				<div class="row" ng-repeat="column in trominoesCtrl.board">
-					<div class="column" ng-style="row.style" ng-repeat="row in column track by $index" ng-click="pushMove($parent.$index, $index)"></div>
+				<div class="row" ng-style="column.style" ng-repeat="column in trominoesCtrl.board">
+					<div class="column" ng-style="row.style" ng-repeat="row in column track by $index" ng-click="pushMove($index, $parent.$index)"></div>
 				</div>
 			</div>
 		</div>
