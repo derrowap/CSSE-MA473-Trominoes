@@ -7,15 +7,15 @@
 			<div class="col-xs-3 board-size">
 				Size of board: <button class="btn btn-primary" ng-click="updateBoardSize(false)"><</button> {{ Math.pow(2, boardSize) }} <button class="btn btn-primary" ng-click="updateBoardSize(true)">></button>
 			</div>
-			<div class="col-xs-2 text-center">
+			<div class="col-xs-4 text-center">
 				Change size of squares
 				<input type="range" min="10" max="60" defaultValue="30" ng-model="trominoesCtrl.squareSize">
 			</div>
-			<div class="col-xs-3 text-center">
+			<div class="col-xs-4 text-center">
 				Change speed of algorithm
-				<input type="range" min="0" max="2000" defaultValue="1000" ng-model="trominoesCtrl.speed">
+				<input type="range" min="0" max="2000" defaultValue="2000" ng-model="trominoesCtrl.speed">
 			</div>
-			<div class="col-xs-2">
+			<div class="col-xs-1">
 				<button class="btn btn-warning" ng-click="restartGame()">Restart</button>
 			</div>
 		</div>
@@ -27,16 +27,16 @@
 			</div>
 			<div class="col-xs-3 btn-group" role="group">
 				Choose a solving algorithm:
-				<button class="btn btn-secondary" ng-click="trominoesCtrl.tileJohnsonbaugh()">Johnsonbaugh</button>
-				<button class="btn btn-secondary" ng-click="trominoesCtrl.tileL()">L-Recursive</button>
+				<button class="btn btn-secondary" ng-click="trominoesCtrl.startAlgorithm(false)">Johnsonbaugh</button>
+				<button class="btn btn-secondary" ng-click="trominoesCtrl.startAlgorithm(true)">L-Shape</button>
 			</div>
 			<div class="col-xs-8">
 				Pick a piece to use:<br>
-				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='single'">Single
-				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='topLeft'">Top Left
-				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='topRight'">Top Right<br>
-				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='bottomLeft'">Bottom Left
-				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='bottomRight'">Bottom Right
+				<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='single'">Single&nbsp;
+				&nbsp;<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='topLeft'">Top Left&nbsp;
+				&nbsp;<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='topRight'">Top Right&nbsp;
+				&nbsp;<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='bottomLeft'">Bottom Left&nbsp;
+				&nbsp;<input type="radio" name="orientation" ng-click="trominoesCtrl.currentOrientation='bottomRight'">Bottom Right
 			</div>
 		</div>
 	</div>
