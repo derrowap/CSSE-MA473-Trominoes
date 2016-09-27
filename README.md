@@ -8,3 +8,6 @@ CSSE/MA 473 Design &amp; Analysis of Algorithms Project: Trominoes
 4. Everything needed should now be installed properly.
 5. Type "npm start"
 6. In a browser, go to "localhost:8000/" and it should take you to the Trominoes page
+
+
+![alt tag](http://derrow-pinion.com/images/trominoes.gif)
