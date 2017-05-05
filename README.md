@@ -1,7 +1,9 @@
 # CSSE-MA473-Trominoes
 CSSE/MA 473 Design &amp; Analysis of Algorithms Project: Trominoes
+
 <br>
 <h3>Instructions on how to open project</h3>
+
 1. Make sure your Node.js is updated
 2. In command line, go to root directory of project ./CSSE-MA473-Trominoes
 3. Type "npm install"
